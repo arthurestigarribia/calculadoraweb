@@ -1,0 +1,77 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora</title>
+	<script>
+		function round(numero) {
+			if(!isNaN(numero) && isFinite(numero))
+				return parseFloat((parseFloat(numero)).toFixed(10))
+			else
+				return "Resultado inválido"
+		}
+
+		function calcula(num_a, num_b) {
+			var a = parseFloat(round(num_a))
+			var b = parseFloat(round(num_b))
+
+			return {
+				"operacao_soma": round(a + b),
+				"operacao_subtracao": round(a - b),
+				"operacao_multiplicacao": round(a * b),
+				"operacao_divisao": round(a / b),
+				"operacao_resto": round(a % b),
+				"operacao_potencia": round(a ** b),
+				"porcentagem_taxa": round(a * b / 100),
+				"porcentagem_aumento": round(a + a * b / 100),
+				"porcentagem_desconto": round(a - a * b / 100),
+				"bhaskara_delta": round(a * a - 4 * b),
+				"bhaskara_raiz_1": round((-a + Math.sqrt(a * a - 4 * b))/2),
+				"bhaskara_raiz_2": round((-a - Math.sqrt(a * a - 4 * b))/2),
+				"func_sqrt_a": round(Math.sqrt(a)),
+				"func_abs_a": round(Math.abs(a)),
+				"func_exp_a": round(Math.exp(a)),
+				"func_log_a": round(Math.log(a)),
+				"func_sin_a": round(Math.sin(a)),
+				"func_cos_a": round(Math.cos(a)),
+				"func_tan_a": round(Math.tan(a)),
+				"func_asin_a": round(Math.asin(a)),
+				"func_acos_a": round(Math.acos(a)),
+				"func_atan_a": round(Math.atan(a)),
+				"func_sinh_a": round(Math.sinh(a)),
+				"func_cosh_a": round(Math.cosh(a)),
+				"func_tanh_a": round(Math.tanh(a)),
+				"func_asinh_a": round(Math.asinh(a)),
+				"func_acosh_a": round(Math.acosh(a)),
+				"func_atanh_a": round(Math.atanh(a)),
+				"pitagoras_hipotenusa": round(Math.sqrt(a * a + b * b)),
+				"pitagoras_cateto": round(Math.sqrt(Math.abs(a * a - b * b))),
+			}
+		}
+
+		function resp() {
+			var a = document.getElementById("num_a").value
+			var b = document.getElementById("num_b").value
+
+			var c = calcula(a, b)
+
+			var d = ""
+
+			for (var i in c) {
+				if (c.hasOwnProperty(i)) {
+					d += i + ": " + c[i] + "<br>"
+				}
+			}
+
+			document.getElementById("resultado").innerHTML = d
+		}
+	</script>
+</head>
+<body>
+	<h1>Calculadora</h1>
+	<p>Digite dois números e selecione Calcular.</p>
+	<input type="number" id="num_a" placeholder="Número a..."><br>
+	<input type="number" id="num_b" placeholder="Número b..."><br>
+	<button onclick="resp()">Calcular</button><br>
+	<div id="resultado"></div>
+</body>
+</html>
