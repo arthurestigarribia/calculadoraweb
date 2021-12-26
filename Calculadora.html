@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width: device-width; user-scalable: no;">
 	<title>Calculadora</title>
 	<script>
 		function round(numero) {
@@ -69,9 +70,9 @@
 <body>
 	<h1>Calculadora</h1>
 	<p>Digite dois números e selecione Calcular.</p>
-	<input type="number" id="num_a" placeholder="Número a..."><br>
-	<input type="number" id="num_b" placeholder="Número b..."><br>
-	<button onclick="resp()">Calcular</button><br>
+	<input type="number" id="num_a" placeholder="Número a..." style="width: 100%; "><br>
+	<input type="number" id="num_b" placeholder="Número b..." style="width: 100%; "><br>
+	<button onclick="resp()" style="width: 100%; ">Calcular</button><br>
 	<div id="resultado"></div>
 </body>
 </html>
